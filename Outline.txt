@@ -1,0 +1,97 @@
+/***Overview***\
+1.Your app will use the geolocation API to determine
+location (in latitude and longitude).
+    - How to acquire latitude & longitude?
+    - User input needed/ button class
+2. Then you can use the Flickr API to obtain a list 
+of photos that were taken near that location.
+    -Potentially use ForEach to create list of photos.
+    -Use If statement or Argument to distinguish course 
+    of action.
+3. Display the first photo on the page, along with a 
+link to that photo’s Flickr page. 
+    - Find way to only show only first image/ 
+    link to photo.
+4. Provide some method of advancing through the photos.
+    - Find a way to click images side to side
+    - Google CSS ways to create slide show buttons
+
+
+ /***Requirements***\
+ - Get geolocation from browser
+    - google it
+ - How do I construct query URL?
+    - google it 
+ - Use Fetch to send request to Flickr
+    - rewatch demo
+ - Turn response data into object
+    - sounds easy enough but demo
+ - Turn the content from the new object into image source URL
+    - there is img data use src
+ - Display image on page    
+    - This is where you show one image at a time
+ - CLickEvent to show other images
+    - Setinterval or create next buttons
+
+/***STEP_ONE***\
+1. Pull up geolocation documentation
+    - need to access the Geolocation object
+     inside of navigator: *navigator.Geolocation*
+2.Notice that the Geolocation API 
+has a function for watchPosition
+    - use that function to update a global variable
+     with your current position whenever it changes.
+3a.Attempt to watch the user’s location
+    -update the location as it moves around(How?)
+3b. If the geolocation API is unavailable or if the user 
+refuses to allow the browser to disclose their location, 
+    -display a message that you could not access their location
+    -use hard-coded latitude and longitude of your choice 
+    (pick someplace interesting!).
+
+/***STEP_TWO***\
+1. Get API key from Flickr
+    -choose non commercial
+    -put reason as "Using APi for school project"
+2.Save key becuase you need for Queries
+    - Ex:https://flickr.com/services/rest/?
+    api_key=993fake589fake6cdfakefcb&format
+    =json&nojsoncallback=1&method=flickr.photos.
+    search&safe_search=1&per_page=5&lat=39.76574&lon=
+    -86.1579024&text=dog
+3. Photo search request must include Search term 
+    - ex: If I search up "books" include it
+4.Set the "lat" and "lon" values to the latitude and longitude 
+that you got from the geolocation API.
+5.Set the per_page count to no more than 5
+6.Set safe_search to 1 to avoid potentially racy images.
+7.Send request(aka fetch) to translator then Flickr
+    - has to be translated first to use fetch
+    -cross-origin requests 
+    - look at example on assigment page: Shrouded mountain link
+
+/***STEP_THREE***\
+1.Use fetch to send the request to Flickr.
+    - Covert from Json into an Object before trying to use
+2.Read link about understanding response data
+
+/***STEP_FOUR***\
+1.Response Object doesnt have URL for photos
+    - Needs to be assembled
+    - Read link
+2. Look at example code for reference on how it looks
+
+/***STEP_FIVE***\
+1.Append image to "main" element using the above URL as 
+the "src" attribute
+    -I dont see one so make one and append to body
+2.Hopefully it fetches pretty please
+
+/***STEP_SIX***\
+1. Provide some way to allow the user to see the next photo.
+    - Use click event button or setInterval(advances the next 
+    photo after a certain number of seconds.)
+2. After the last photo in the array is displayed, 
+advancing again should show the first photo again.
+
+ 
