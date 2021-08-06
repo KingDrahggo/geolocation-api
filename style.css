@@ -1,5 +1,24 @@
 /* Write your CSS Here. */
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: content-box;
+}
 
 body {
-    background-color: tan;
+    background-color: gray;
+    flex-direction: column;
+}
+
+main {
+    margin: 0%;
+    display: block;
+    flex-direction: column;
+}
+
+div {
+   border: black;
+   border-radius: 0%;
+    margin: 10%;
+
 }

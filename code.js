@@ -13,12 +13,12 @@ document.body.appendChild(main)
 const startButton = document.createElement("button")
 startButton.innerHTML = `Start Tracker`
 document.body.appendChild(startButton);
-const stopButton = document.createElement("button")
-stopButton.innerHTML = `Stop Tracker`
-document.body.appendChild(stopButton);
+// const stopButton = document.createElement("button")
+// stopButton.innerHTML = `Stop Tracker`
+// document.body.appendChild(stopButton);
 
 let start = startButton.addEventListener(`click`,() =>{
-    navigator.geolocation.watchPosition(
+    navigator.geolocation.getCurrentPosition(
         position => {
             console.log(position)
             requestPhotos(position.coords);
@@ -31,10 +31,14 @@ let start = startButton.addEventListener(`click`,() =>{
     );
 });
 
-stopButton.addEventListener(`click`,() =>{
-    navigator.geolocation.clearWatch(start);
-    console.log("Ending Tracking")
-});
+const trackUser = navigator.geolocation.watchPosition(
+    success => {
+            console.log(success)
+            requestPhotos(success.coords);
+        },
+);
+
+navigator.geolocation.clearWatch(trackUser);
 
 const fallBackLocation = {latitude: 28.474386, longitude: -81.468193}
 
@@ -55,32 +59,35 @@ function processResponse (response) {
     responsePromise.then(showPhotos)
 }
 
+var photosArray = []
+var index = 0
+
 function showPhotos (data){
     console.log(data)
     photosArray = data.photos.photo
+    console.log(photosArray)
+    
+    for(const index in photosArray){
+    let div = document.createElement('div')
     var img = document.createElement('img');
-    photosArray.forEach(element => 
-    img.src =(assembleUrlSourceImage(photosArray[currentPhotoIndex])))
-    main.append(img)
+    div.innerHTML = assembleUrlSourceImage(photosArray[index])
+    div.append(img)
+    img.src =(assembleUrlSourceImage(photosArray[index]))
+    main.append(div)
+    }
 }
 
-var photosArray = []
-var currentPhotoIndex = 0
 
-let morePhotos = document.createElement('button')
-morePhotos.innerHTML = "More Photos"
-morePhotos.addEventListener('click', () =>{
-    showPhotos()
-});
-main.append(morePhotos);
-// if(navigator.geolocation)
-//     navigator.geolocation.getCurrentPosition(
-//         function(position) {
-//             const { latitude } = position.coords;
-//             const { longitude } = position.coords;
-//             console.log(latitude,latitude)
-//         },
-//         function () {
-//             alert(`Could not get your position`);
-//         }
-//     )
+// let morePhotos = document.createElement('button')
+// morePhotos.innerHTML = "More Photos"
+// morePhotos.addEventListener('click', () =>{
+//     showPhotos()
+// });
+// main.append(morePhotos);
+// displayPhotoObject(photoObj) {
+//     let imageUrl = this.assembleUrlSourceImage(photoObj);
+//     let img = document.createElement('img')
+//     img.src = imageUrl
+//     main.innerHTML = ''
+//     main.append(img)
+// }
