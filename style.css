@@ -12,13 +12,26 @@ body {
 
 main {
     margin: 0%;
+    width: 60%;
+    height: 60%;
+    left: 50%;
     display: block;
-    flex-direction: column;
+    align-self: center;
+    position:relative;
+    top: 10px;
+    left: 20px;
 }
 
-div {
-   border: black;
-   border-radius: 0%;
-    margin: 10%;
+button {
+  position: absolute;
+  top: 60px;
+  animation-fill-mode: forwards;
+}
 
+img {
+    animation: forwards;
+    width: 60%;
+    height: 60%;
+    overflow: visible;
+    align-self: center;
 }
