@@ -1,7 +1,4 @@
-// To run this assignment, right click on index.html in the Visual Studio file explorer to the left
-// and select "Open with Live Server"
 
-// Your Code Here.
 let body = document.querySelector("body");
 let main = document.createElement("main");
 document.body.appendChild(main);
