@@ -1,0 +1,66 @@
+/* Write your CSS Here. */
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(204, 204, 204);
+}
+
+header{
+    font-size: 100px;
+    text-shadow: 5px 5px 5px black;
+    background-color: grey;
+}
+
+main {
+    margin: 0%;
+    width: 60%;
+    height: 60%;
+    left: 50%;
+    display: block;
+    align-self: center;
+    position:relative;
+    top: 10px;
+    left: 20px;
+}
+
+h2{
+ font-size: 30px;
+ display: flex;
+ justify-content: center;
+ /* position: relative;
+ left: 100px; */
+}
+
+img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    transition: all .2s ease;
+    width: 60%;
+    height: 60%;
+    overflow: visible;
+    align-self: center;
+}
+
+button {
+    display: flex;
+    position: absolute;
+}
+
+.start-btn{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
