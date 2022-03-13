@@ -1,13 +1,22 @@
-
+/* Write your CSS Here. */
 *{
     padding: 0px;
     margin: 0px;
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: gray;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(204, 204, 204);
+}
+
+header{
+    font-size: 100px;
+    text-shadow: 5px 5px 5px black;
+    background-color: grey;
 }
 
 main {
@@ -22,16 +31,36 @@ main {
     left: 20px;
 }
 
-button {
-  position: absolute;
-  top: 60px;
-  animation-fill-mode: forwards;
+h2{
+ font-size: 30px;
+ display: flex;
+ justify-content: center;
+ /* position: relative;
+ left: 100px; */
 }
 
 img {
-    animation: forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    transition: all .2s ease;
     width: 60%;
     height: 60%;
     overflow: visible;
     align-self: center;
+}
+
+button {
+    display: flex;
+    position: absolute;
+}
+
+.start-btn{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

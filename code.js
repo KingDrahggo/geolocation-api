@@ -4,12 +4,17 @@ let main = document.createElement("main");
 document.body.appendChild(main);
 
 const startButton = document.createElement("button");
-startButton.innerHTML = `Start`;
+startButton.style.top = "175px";
+startButton.style.left = "725px";
+startButton.innerHTML = `Click`;
+startButton.classList.add('.start-btn');
 document.body.appendChild(startButton);
 
 const replayButton = document.createElement("button");
-replayButton.style.top = "80px"
+replayButton.style.top = "175px";
+replayButton.style.left = "775px"
 replayButton.innerHTML = `Replay`;
+replayButton.classList.add('.replay-btn');
 document.body.appendChild(replayButton);
 
 
@@ -67,10 +72,13 @@ function showPhotos(data) {
     index++;
     let img = document.createElement("img");
     img.src = assembleUrlSourceImage(photosArray[index]);
-    main.innerHTML = `<a href="${assembleUrlSourceImage(photosArray[index])}">Click Here.</a>`;
+    main.innerHTML = `<a href="${assembleUrlSourceImage(photosArray[index])}"><b>Show Image</b></a>`;
     main.append(img);
   } else {
-      console.log("Done")
+    let img = document.createElement("img");
+    img.src = "replayimg.jpg";
+    main.append(img);
+    console.log("Done")
   }
 }
 
